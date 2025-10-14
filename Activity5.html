@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f7f7f7;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    li {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .done {
+      color: green;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>To-Do Task Manager</h1>
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button id="addTaskBtn">Add Task</button>
+  <button id="markAllBtn">Mark All as Done</button>
+  <button id="clearCompletedBtn">Clear Completed</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const addTaskBtn = document.getElementById("addTaskBtn");
+    const markAllBtn = document.getElementById("markAllBtn");
+    const clearCompletedBtn = document.getElementById("clearCompletedBtn");
+    const taskList = document.getElementById("taskList");
+
+
+    addTaskBtn.addEventListener("click", () => {
+      const taskText = taskInput.value.trim();
+      if (taskText !== "") {
+        const li = document.createElement("li");
+        li.textContent = taskText;
+        taskList.appendChild(li);
+        taskInput.value = "";
+      }
+    });
+
+
+    markAllBtn.addEventListener("click", () => {
+      const tasks = document.querySelectorAll("#taskList li");
+      tasks.forEach(task => {
+        task.classList.add("done");
+      });
+    });
+
+    
+    clearCompletedBtn.addEventListener("click", () => {
+      const completedTasks = document.querySelectorAll("#taskList li.done");
+      completedTasks.forEach(task => task.remove());
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity4</title>
+    <link href="activity4.css" rel="stylesheet" />
+</head>
+<body>
+<style>
+    body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    padding: 30px;
+    background-color: rgb(217, 32, 193);
+    transition: 0.6 ease;
+    width: 700px;
+    height: 900px;
+    border-radius: 7px;
+    gap: 30px;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: aqua;
+
+}
+
+button {
+    width: 200px;
+    height: 60px;
+    
+}
+
+body.darkmode {
+    background-color: #121212;
+    color: white;
+}
+
+.container.darkmode {
+    background-color: #333;
+}
+
+</style>
+    <div class="container">
+    <img src="formal picture.jpg" alt="">
+    <button> Darkmode</button>
+    <p id="Output">Hi , I'm Sheryl</p>
+    </div>
+    <script src = activity4.js></script>
+    <script>
+        const btn = document.querySelector("button");
+const text = document.querySelector("p");
+const body = document.body;
+const container = document.querySelector(".container");
+
+btn.addEventListener("click", () => {
+    body.classList.toggle("darkmode");
+    container.classList.toggle("darkmode");
+   
+    if (body.classList.contains("darkmode")) {
+        btn.textContent = " Lightmode";
+        text.textContent = "Hi, I'm Sheryl";
+    } else {
+        btn.textContent = " Darkmode";
+        text.textContent = "Welcome";
+    }
+});
+    </script>
+</body>
+</html>

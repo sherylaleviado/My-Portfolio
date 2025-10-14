@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body, html {
+            display: flex;
+            padding: 70px;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            background-color: #f0f0f0; 
+        }
+
+        .profile {
+            background-color: aquamarine;
+            margin: 50px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 7px solid transparent;
+            border-radius: 7px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            height: 500px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile img {
+            margin: 20px;
+            border-radius: 50%; 
+            box-shadow: 0 0 0 5px azure, 0 0 0 10px aquamarine;
+            width: 100px;
+            height: 100px;
+            object-fit: cover; 
+        }
+        
+        #btn-aboutme {
+            width: 100px;
+            height: 80px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #333; 
+            color: white; 
+            border: none;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        #Info p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+        
+        .hide {
+            display: none;
+        }
+    </style>
+    </head>
+<body>
+    <div class="profile">
+        <img src="formal picture.jpg" alt="Profile Picture of Sheryl Aleviado">
+        <h1>Sheryl Aleviado</h1>
+        <p>sheeeee</p>
+        
+        <button id="btn-aboutme">About Me</button>
+        <div class="hide" id="Info">
+            <p>Success</p>
+        </div>
+    </div>
+
+    <script>
+        const btnAboutme = document.getElementById("btn-aboutme");
+        const divAboutme = document.getElementById("Info");
+        
+        btnAboutme.addEventListener('click', function() {
+            
+            if (divAboutme.classList.contains('hide')) {
+                divAboutme.classList.remove('hide');
+                btnAboutme.textContent = "Show Less";
+            } else {
+                divAboutme.classList.add('hide');
+                btnAboutme.textContent = "About Me"; 
+            }
+        });
+    </script>
+    </body>
+</html>
